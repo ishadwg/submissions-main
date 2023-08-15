@@ -5,7 +5,7 @@
 
               <x-table-title></x-table-title>
 
-              <x-table></x-table>
+              <x-table :records="$records"></x-table>
           </div>
       </div>
   </section>
