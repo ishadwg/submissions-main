@@ -10,9 +10,9 @@ class History extends Model
 {
     use HasFactory;
 
-    public function user(): BelongsTo
+    public function actor(): BelongsTo
     {
-      return $this->belongsTo(User::class);
+      return $this->belongsTo(User::class, 'user_id');
     }
 
     public function submission(): BelongsTo
