@@ -1,22 +1,11 @@
 <tr>
-  <th
-      class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left text-blueGray-700 ">
-      {{ $record->id }}
-  </th>
-  <td
-      class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 ">
-      {{ $record->created_at }}
-  </td>
-  <td
-      class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 ">
-      {{ $record->type }}
-  </td>
-  <td
-      class="border-t-0 px-6 align-center border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-      {{ $record->user_id }}
-  </td>
-  <td
-      class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-      <p class="text-gray-600">{{ $record->status_id }}</p>
-  </td>
+  <x-cell-head>{{ $record->id }}</x-cell-head>
+  <x-cell-row>{{ $record->created_at->toDayDateTimeString() }}</x-cell-row>
+  <x-cell-row>{{ $record->type }}</x-cell-row>
+  <x-cell-row>{{ $record->user->name }}</x-cell-row>
+  <x-cell-row>
+    <x-status-cell :id="$record->status_id">
+      {{ $record->status->name }}
+    </x-status-cell>
+  </x-cell-row>
 </tr>
