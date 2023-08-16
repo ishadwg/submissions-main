@@ -11,6 +11,8 @@ class Submission extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['type', 'attachment', 'user_id', 'status_id'];
+
     public function submitter(): BelongsTo
     {
       return $this->belongsTo(User::class, 'user_id');

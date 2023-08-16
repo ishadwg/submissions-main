@@ -8,4 +8,9 @@
       {{ $record->status->name }}
     </x-status-cell>
   </x-cell-row>
+    <x-cell-row>
+      <x-button-anchor class="bg-blue-500" :id="$record->id">View</x-button-anchor>
+      <x-button-anchor class="bg-green-500" :id="$record->id">Approve</x-button-anchor>
+      <x-button-anchor class="bg-red-500" :id="$record->id">Reject</x-button-anchor>
+    </x-cell-row>
 </tr>

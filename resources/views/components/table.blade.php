@@ -22,6 +22,9 @@
                   class="px-6 py-3 text-xs font-semibold text-left bg-blueGray-50 text-blueGray-500 border border-blueGray-100 whitespace-nowrap border-l-0 border-r-0 uppercase">
                   Status
               </th>
+              <th
+                  class="px-6 py-3 text-xs font-semibold text-left bg-blueGray-50 text-blueGray-500 border border-blueGray-100 whitespace-nowrap border-l-0 border-r-0 uppercase">
+              </th>
           </tr>
       </thead>
 
