@@ -5,7 +5,7 @@
 
               <x-card-value :cardvalue="$cardvalue"></x-card-value>
 
-              <x-card-table :recenthistories="$recenthistories"></x-card-table>
+              <x-card-table :recenthistories="$recenthistories">Recent Approval</x-card-table>
 
           </div>
       </div>
