@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreSubmissionRequest;
+use App\Http\Requests\SubmissionApprovalRequest;
 use App\Models\Status;
 use App\Models\Submission;
 use Illuminate\Support\Str;
@@ -64,10 +65,12 @@ class SubmissionController extends Controller
     return view('submission.show', ['record' => $record]);
   }
 
-  public function approval(Submission $submission)
-  {
-    $status = Str::contains(request()->url(), 'reject') ?
-      Status::REJECTED : (Str::contains(request()->url(), 'approve') ?
+  public function approval(
+    Submission $submission,
+    SubmissionApprovalRequest $request
+  ) {
+    $status = Str::contains($request->url(), 'reject') ?
+      Status::REJECTED : (Str::contains($request->url(), 'approve') ?
         Status::APPROVED : null
       );
 
