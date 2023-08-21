@@ -13,6 +13,7 @@
         href="/submissions/">
         View
       </x-button-anchor>
+      @if ($record->is_pending)
       <x-button-anchor class="bg-green-500" :id="$record->id"
         href="/submissions/approve/">
         Approve
@@ -21,5 +22,6 @@
         href="/submissions/reject/">
         Reject
       </x-button-anchor>
+      @endif
     </x-cell-row>
 </tr>

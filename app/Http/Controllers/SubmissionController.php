@@ -12,14 +12,6 @@ use Illuminate\Support\Facades\DB;
 class SubmissionController extends Controller
 {
   /**
-   * Display a listing of the resource.
-   */
-  public function index()
-  {
-    //
-  }
-
-  /**
    * Show the form for creating a new resource.
    */
   public function create()
@@ -86,7 +78,6 @@ class SubmissionController extends Controller
       $submission->status_id = $status['id'];
       $submission->save();
     });
-
 
     return redirect('/home')
       ->with('success', "The Submission ID#{$submission->id} has been " . strtolower($status['name']));

@@ -13,17 +13,14 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $submissions = Submission::latest()->get();
-        $cardvalue = [
-          'pending' => Submission::where('status_id', Status::PENDING['id'])->count(),
-          'total' => Submission::count(),
-        ];
-        $recenthistories = History::latest()->limit(2)->get();
-
         return view('home', [
-          'records' => $submissions,
-          'cardvalue' => $cardvalue,
-          'recenthistories' => $recenthistories,
+            'records' => Submission::filter(request(['status']))->latest()->get(),
+            'cardvalue' => [
+                'pending' => Submission::where('status_id', Status::PENDING['id'])
+                    ->count(),
+                'total' => Submission::count(),
+            ],
+            'recenthistories' => History::latest()->limit(2)->get(),
         ]);
     }
 
@@ -31,5 +28,4 @@ class HomeController extends Controller
     {
         return view('welcome');
     }
-
 }
